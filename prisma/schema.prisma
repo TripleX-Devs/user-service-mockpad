@@ -12,3 +12,64 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+model Student {
+  id        String      @id @default(uuid())
+  role      UserRoles   @default(STUDENT) 
+  name      String
+  rollNo    Int     @unique
+  gender   Gender
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  dateOfBirth String
+  category  Category
+  phoneNumber  String @unique
+  email String @unique
+  dateOfAdmission String
+  universityRegistrationNumber String 
+  admissionNumber String @unique
+  hostelFacility Boolean
+  tenthBoardName String
+  maxMarksTenth Int
+  obtainedMarksTenth Int
+  percentageTenth Float
+  twelthBoardName String
+  maxMarksTwelth Int
+  obtainedMarksTwelth Int
+  percentageTwelth Float
+  receiptNumber String?
+  twelthSchoolName String
+  instituteName String
+  batchYear String
+  courseName String
+  permanentAddress String
+  currentAddress String
+  city String
+  state String
+  pincode String
+  country String
+  fatherName String
+  fatherOccupation String?
+  fatherPhoneNumber String
+  fatherEmail String
+  motherName String
+  motherOccupation String?
+  motherPhoneNumber String
+  motherEmail String
+  guardianName String?
+}
+enum Gender {
+  male
+  female
+}
+enum Category {
+  general
+  obc
+  sc
+  st
+}
+
+enum UserRoles {
+  ADMIN
+  STUDENT
+  TEACHER
+}
