@@ -81,7 +81,6 @@ model Teacher {
     id   String    @id @default(uuid())
 
     name   String
-    rollNo String @unique
     gender Gender
 
     dateOfBirth DateTime
@@ -108,7 +107,6 @@ model Admin {
     id   String    @id @default(uuid())
 
     name   String
-    rollNo String @unique
     gender Gender
 
     dateOfBirth DateTime
