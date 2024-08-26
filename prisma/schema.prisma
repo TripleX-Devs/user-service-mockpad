@@ -17,7 +17,6 @@ model Student {
     name   String
     rollNo String    @id @unique
     gender Gender
-    role   UserRoles @default(STUDENT)
 
     dateOfBirth DateTime
     phoneNumber String   @unique
@@ -80,7 +79,6 @@ enum Country {
 
 model Teacher {
     id   String    @id @default(uuid())
-    role UserRoles @default(TEACHER)
 
     name   String
     rollNo String @unique
@@ -108,7 +106,6 @@ model Teacher {
 
 model Admin {
     id   String    @id @default(uuid())
-    role UserRoles @default(ADMIN)
 
     name   String
     rollNo String @unique
