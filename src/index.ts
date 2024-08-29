@@ -1,7 +1,7 @@
-import setHeaders from '@/config/headers';
-import { httpLogger, logger } from '@/logger';
+import setHeaders from "@/config/headers";
+import { httpLogger, logger } from "@/logger";
 
-import express from 'express';
+import express from "express";
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -11,9 +11,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(setHeaders);
 app.use(httpLogger);
 
-if (process.env.NODE_ENV === 'development') {
-    app.get('/', (req, res) => {
-        res.send('Welcome to api set up by node-nitro ^_+');
+if (process.env.NODE_ENV === "development") {
+    app.get("/", (req, res) => {
+        res.send("Welcome to api set up by node-nitro ^_+");
     });
 }
 
