@@ -15,7 +15,7 @@ datasource db {
 
 model Student {
     name   String
-    rollNo String    @id @unique
+    rollNo String @id @unique
     gender Gender
 
     dateOfBirth DateTime
@@ -35,7 +35,7 @@ model Student {
     universityName               String
     universityEmail              String   @unique
     universityEmailPassword      String
-    group                        Int      @db.SmallInt
+    group                        String
     batchYear                    String
     courseName                   String
     hostelFacility               Boolean
@@ -43,14 +43,14 @@ model Student {
     receiptNumber                String?
 
     tenthBoardName     String
-    tenthMaxMarks      Int
-    tenthObtainedMarks Int
+    tenthMaxMarks      Int    @db.SmallInt
+    tenthObtainedMarks Int    @db.SmallInt
     tenthpercentage    Float
     tenthSchoolName    String
 
     twelthBoardName     String
-    twelthMaxMarks      Int
-    twelthObtainedMarks Int
+    twelthMaxMarks      Int    @db.SmallInt
+    twelthObtainedMarks Int    @db.SmallInt
     twelthpercentage    Float
     twelthSchoolName    String
 
@@ -78,7 +78,7 @@ enum Country {
 }
 
 model Teacher {
-    id   String    @id @default(uuid())
+    id String @id @default(uuid())
 
     name   String
     gender Gender
@@ -104,7 +104,7 @@ model Teacher {
 }
 
 model Admin {
-    id   String    @id @default(uuid())
+    id String @id @default(uuid())
 
     name   String
     gender Gender
@@ -139,10 +139,4 @@ enum Category {
     OBC
     SC
     ST
-}
-
-enum UserRoles {
-    ADMIN
-    STUDENT
-    TEACHER
 }
