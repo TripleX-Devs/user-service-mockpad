@@ -1,7 +1,15 @@
-import { drizzle } from 'drizzle-orm/postgres-js';
-import postgres from 'postgres';
+import { PrismaClient } from "@prisma/client";
 
-const queryClient = postgres(process.env.POSTGRES_URI);
-const drizzleClient = drizzle(queryClient);
+const prismaClientSingleton = () => {
+    return new PrismaClient();
+};
 
-export default drizzleClient;
+declare global {
+    var prisma: undefined | ReturnType<typeof prismaClientSingleton>;
+}
+
+const prismaClient = globalThis.prisma ?? prismaClientSingleton();
+
+export default prismaClient;
+
+if (process.env.NODE_ENV !== "production") globalThis.prisma = prisma;
