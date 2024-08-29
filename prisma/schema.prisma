@@ -17,6 +17,7 @@ model Student {
     name   String
     rollNo String @id @unique
     gender Gender
+    profilePicUrl String @unique
 
     dateOfBirth DateTime
     phoneNumber String   @unique
@@ -82,6 +83,7 @@ model Teacher {
 
     name   String
     gender Gender
+    profilePicUrl String @unique
 
     dateOfBirth DateTime
     phoneNumber String   @unique
@@ -108,6 +110,7 @@ model Admin {
 
     name   String
     gender Gender
+    profilePicUrl String @unique
 
     dateOfBirth DateTime
     phoneNumber String   @unique
