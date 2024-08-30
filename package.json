@@ -9,6 +9,7 @@
         "migrate:prod": "dotenvx run --env-file=.env.development -- yarn prisma generate",
         "migrate-reset": "dotenvx run --env-file=.env.development -- yarn prisma migrate reset",
         "db-push": "dotenvx run --env-file=.env.development -- yarn prisma db push",
+        "studio": "dotenvx run --env-file=.env.development -- yarn prisma studio",
         "start": "node ./index.js",
         "build": "tspc"
     },
